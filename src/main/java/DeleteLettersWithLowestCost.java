@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteLetersWithLowestCost {
+public class DeleteLettersWithLowestCost {
 
     public static void main(String[] args) {
         int[] ints = {5, 4, 3, 2, 1, 7, 8};
         String s = "accbaaa";
-        DeleteLetersWithLowestCost deleteLetersWithLowestCost = new DeleteLetersWithLowestCost();
-        System.out.println(deleteLetersWithLowestCost.solution(s, ints));
+        DeleteLettersWithLowestCost deleteLettersWithLowestCost = new DeleteLettersWithLowestCost();
+        System.out.println(deleteLettersWithLowestCost.solution2(s, ints));
     }
 
     public int solution(String S, int[] C) {
@@ -35,6 +35,26 @@ public class DeleteLetersWithLowestCost {
             }
         }
 
+        return costsSum;
+    }
+
+    public int solution2(String S, int[] C) {
+        int costsSum = 0;
+        char letterToCompare = S.charAt(0);
+        int indexOfLetterToCompare = 0;
+        for (int i = 1; i < C.length; i++) {
+            if (letterToCompare == S.charAt(i)) {
+                if (C[indexOfLetterToCompare] > C[i]){
+                    costsSum += C[i];
+                } else {
+                    costsSum += C[indexOfLetterToCompare];
+                    indexOfLetterToCompare = i;
+                }
+            } else {
+                letterToCompare = S.charAt(i);
+                indexOfLetterToCompare = i;
+            }
+        }
         return costsSum;
     }
 }

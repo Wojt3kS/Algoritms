@@ -6,7 +6,7 @@ public class OddPairs {
     public static void main(String[] args) {
         int [] ints = {2, 5, 8, 9, 11, 13};
         OddPairs oddPairs = new OddPairs();
-        System.out.println(oddPairs.solution(ints));
+        System.out.println(oddPairs.solution2(ints));
     }
 
     public boolean solution(int[] A) {
@@ -29,5 +29,21 @@ public class OddPairs {
             }
         }
         return pairs.size() == 0;
+    }
+
+    public boolean solution2(int[] A) {
+        if (A.length % 2 != 0){
+            return false;
+        }
+        int numberOfOdds = 0;
+        int numberOfEvens = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0){
+                numberOfEvens++;
+            } else {
+                numberOfOdds++;
+            }
+        }
+        return numberOfEvens == numberOfOdds;
     }
 }
