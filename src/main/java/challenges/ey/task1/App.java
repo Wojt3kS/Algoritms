@@ -9,9 +9,9 @@ class App {
         App app = new App();
         boolean amIEgoistic = app.isEgoistic("cokolwiek");
         if (amIEgoistic) {
-            System.out.println("no");
-        } else {
             System.out.println("yes");
+        } else {
+            System.out.println("no");
         }
         System.out.println("I hope not");
     }
